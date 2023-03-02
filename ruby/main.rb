@@ -1,10 +1,3 @@
-# frozen_string_literal: true
-
-class Main
-  puts("hello")
-end
-
-
 
 class Command
 
