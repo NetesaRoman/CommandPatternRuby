@@ -4,11 +4,10 @@ class Main
   puts("hello")
 end
 
-# Интерфейс Команды объявляет метод для выполнения команд.
-#
-# @abstract
+
+
 class Command
-  # @abstract
+
   def execute
     raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
   end
@@ -17,7 +16,7 @@ end
 
 class Read < Command
 
-  # @param [Receiver] receiver
+
   def initialize(receiver)
     @receiver = receiver
 
@@ -31,7 +30,6 @@ end
 
 class Create < Command
 
-  # @param [Receiver] receiver
   def initialize(receiver)
     @receiver = receiver
 
@@ -46,7 +44,6 @@ end
 
 class Update < Command
 
-  # @param [Receiver] receiver
   def initialize(receiver)
     @receiver = receiver
 
@@ -60,7 +57,7 @@ end
 
 
 class Delete < Command
-  # @param [Receiver] receiver
+
   def initialize(receiver)
     @receiver = receiver
 
@@ -94,30 +91,27 @@ class Receiver
 
 end
 
-# Отправитель связан с одной или несколькими командами. Он отправляет запрос
-# команде.
-class Invoker
-  # Инициализация команд.
 
-  # @param [Command] command
+class Invoker
+
+
+
   def task1=(command)
     @task1 = command
   end
-  # @param [Command] command
+
   def task2=(command)
     @task2 = command
   end
-  # @param [Command] command
+
   def task3=(command)
     @task3 = command
   end
-  # @param [Command] command
+
   def task4=(command)
     @task4 = command
   end
 
-  # Отправитель не зависит от классов конкретных команд и получателей.
-  # Отправитель передаёт запрос получателю косвенно, выполняя команду.
   def do_something_important
 
     puts "\nClient started doing something\n"
@@ -135,7 +129,6 @@ class Invoker
   end
 end
 
-# Клиентский код может параметризовать отправителя любыми командами.
 invoker = Invoker.new
 
 
